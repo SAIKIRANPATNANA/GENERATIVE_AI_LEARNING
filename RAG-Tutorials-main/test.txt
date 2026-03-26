@@ -1,0 +1,202 @@
+
+4
+
+Automatic Zoom
+fill
+Generative AI at Work ̊
+Erik Brynjolfsson Danielle Li Lindsey Raymond
+Stanford & NBER MIT & NBER MIT
+November 7, 2024
+First Draft: 23 April 2023
+Abstract
+We study the staggered introduction of a generative AI-based conversational assistant using
+data from 5,172 customer support agents. Access to AI assistance increases worker productivity,
+as measured by issues resolved per hour, by 15% on average, with substantial heterogeneity
+across workers. Less experienced and lower-skilled workers improve both the speed and quality of
+their output while the most experienced and highest-skilled workers see small gains in speed and
+small declines in quality. We also find evidence that AI assistance facilitates worker learning and
+improves English fluency, particularly among international agents. While AI systems improve
+with more training data, we find that the gains from AI adoption are largest for relatively
+rare problems, where human agents have less baseline training and experience. Finally, we
+provide evidence that AI assistance improves the experience of work along two key dimensions:
+customers are more polite and less likely to ask to speak to a manager.
+JEL Classifications: D80, J24, M15, M51, O33
+Keywords: Generative AI, Large Language Models, Technology Adoption, Worker Productiv-
+ity, Worker Learning, Experience of Work, Organizational Design.
+ ̊Correspondence to erikb@stanford.edu, d_li@mit.edu, and lraymond@mit.edu. We are grateful to Daron Acemoglu, David
+Autor, Amittai Axelrod, Eleanor Dillon, Zayd Enam, Luis Garicano, Alex Frankel, Sam Manning, Sendhil Mullainathan, Emma
+Pierson, Scott Stern, Ashesh Rambachan, John Van Reenen, Raffaella Sadun, Kathryn Shaw, Christopher Stanton, Sebastian
+Thrun, and various seminar participants for helpful comments and suggestions. We thank Max Feng for providing excellent
+research assistance and the Stanford Digital Economy Lab for funding. The content is solely the responsibility of the authors
+and does not necessarily represent the official views of Stanford University, MIT, or the NBER.
+arXiv:2304.11771v2  [econ.GN]  6 Nov 2024
+see larger gains in productivity, and adherence rates increase over time, particularly those who
+were initially more skeptical. We also find that engagement with AI recommendations can generate
+durable learning. Using data on software outages—periods in which the AI software fails to provide
+any suggestions—we show that workers see productivity gains relative to their pre-AI baseline
+even when recommendations are unavailable. These outage-period gains are more pronounced for
+workers with more prior exposure to AI assistance, and especially those who had been following AI
+recommendations more closely. In addition, we examine the heterogeneous impact of AI access by
+the technical support conversation topics that agents encounter. While AI systems improve with
+access to more training data, we find that the gains to AI adoption—when used to complement
+human workers—are largest for relatively rare problems, perhaps because agents are already capable
+of addressing the problems they encounter most frequently. We further analyze the text of agents’
+chats and provide evidence that access to AI improves their English language fluency, especially
+among international agents. Finally, we compare the text of conversations before and after AI
+and provide suggestive evidence that AI adoption drives convergence in communication patterns:
+low-skill agents begin communicating more like high-skill agents.
+Our third set of results focus on agents’ experience of work. Work in contact centers3 is often
+difficult. Agents are regularly exposed to hostile treatment from upset (and anonymous) customers,
+and because much work is outsourced, many agents work overnight shifts in order to service US
+business hours. AI assistance may help agents communicate more effectively but could also increase
+the likelihood that agents are perceived as mechanical or inauthentic. We show that access to AI
+assistance markedly improves how customers treat agents, as measured by the sentiment of their
+chat messages. We also find that customers are less likely to question the competence of agents by
+requesting to speak to a supervisor. These changes come alongside a decrease in worker attrition,
+which is driven by the retention of newer workers.
+Our overall findings show that access to generative AI can increase the productivity of individual
+workers, and improve their experience of work. We emphasize, however, that these findings capture
+medium run impacts within a single firm: our paper is not designed to shed light on the aggregate
+employment or wage effects of generative AI tools. In the longer run, firms may respond to increasing
+productivity among novice workers by hiring more of them, or by seeking to develop more powerful
+AI systems that replace their use of labor altogether. This latter scenario highlights the possibility
+that while the introduction of generative AI may increase demand for lower-skill labor within an
+occupation, the equilibrium response to AI assistance may lead to across occupation shifts in labor
+3The term “contact center” updates the term “call center,” to reflect the fact that a growing proportion of customer
+service contacts no longer involve phone calls.
+3
+demand that instead benefit higher skill workers (Autor et al., 2003; Acemoglu and Restrepo, 2018;
+Acemoglu, 2024).4 Unfortunately, our data do not allow us to observe changes in wages, overall
+labor demand, or the skill composition of workers hired at the firm.
+Our results also highlight the longer-term incentive challenges raised by the adoption of AI
+systems. In our data, top workers increase their adherence to AI recommendations, even though
+those recommendations marginally decrease the quality of their conversations. Yet, with fewer
+original contributions from the most skilled workers, future iterations of the AI model may be less
+effective in solving new problems. Our work therefore raises questions about whether and how
+workers should be compensated for the data they provide for training AI systems.
+Our paper is related to a large literature on the impact of technological adoption on worker
+productivity and the organization of work (e.g. Rosen, 1981; Autor et al., 1998; Athey and Stern,
+2002; Bresnahan et al., 2002; Bartel et al., 2007; Acemoglu et al., 2007; Hoffman et al., 2017; Bloom
+et al., 2014; Michaels et al., 2014; Garicano and Rossi-Hansberg, 2015; Acemoglu and Restrepo, 2020;
+Felten et al., 2023). Many of these studies, particularly those focused on information technologies,
+find evidence that IT complements higher-skill or more-educated workers (Akerman et al., 2015;
+Taniguchi and Yamada, 2022). For instance, Bartel et al. (2007) finds that firms that adopt IT tend
+to use more skilled labor and is associated with increased skill requirements for machine operators
+in valve manufacturing. Other research compares workers with different degrees of educational
+attainment between occupations; Acemoglu and Restrepo (2020) study the diffusion of robots and
+finds that the negative effects of robots on employment are most pronounced for workers in blue-
+collar occupations and those with fewer than a college education.
+There have been substantially fewer studies involving AI-based technologies, generative or not.
+Acemoglu et al. (2022); Zolas et al. (2020); Calvino and Fontanelli (2023) examine economy-wide
+data from the US and OECD and show that the adoption of AI tools is concentrated among larger
+and younger firms with relatively high productivity. So far, evidence on the productivity impacts
+of these technologies is mixed: for example, Acemoglu et al. (2022) finds no detectable relationship
+between investments in AI-specific tools, while Babina et al. (2022) finds evidence of a positive
+relationship between firms’ AI investments and their subsequent growth and valuations.5 These
+studies all caution that the productivity effects of AI technologies may be challenging to identify at
+the macro-level because AI-adopting firms differ substantially from non-adopters.
+4For example, transcripts from a fully automated customer service division could be sent to human analysts who
+mine this data for information on how to improve a product.5OECD (2023) reports that when surveyed firms are asked directly, 57% of employers in finance and 63% in
+manufacturing reported that AI positively impacted productivity and 80% of surveyed workers who work with AI
+report higher job performance.
+4
+Even at the decision level, the effects of AI on decision quality are mixed, often revealing
+unexpected challenges in human-AI collaboration. Some studies on AI decision support tools report
+positive impacts. For instance, Kanazawa et al. (2022) examine a non-generative AI tool for taxi
+drivers that suggests routes with the highest likelihood of finding customers. This tool reduces
+driver search time by 5%, with low-skill drivers seeing the largest reductions in search. On the
+other hand, several studies find that the combination of AI and human decisions performs worse
+than either AI or humans alone (Hoffman et al., 2017; Angelova et al., 2023; Agarwal et al., 2023;
+Poursabzi-Sangdeh et al., 2021). In fact, a meta-analysis of more than 100 experimental studies
+concludes that, on average, human-AI collaborations underperform both the AI alone and the best
+human decision-makers (Vaccaro et al., 2024). These results underscore the particular challenges
+introduced when using AI-based tools designed to augment human decision making.
+In this paper, we provide micro-level evidence on the adoption of a generative AI tool across
+thousands of workers employed by a given firm and its subcontractors. Our work is closely related to
+several other studies examining the impacts of generative AI in lab-like settings. Peng et al. (2023b)
+recruit software engineers for a specific coding task (writing an HTTP server in JavaScript) and
+show that those given access to GitHub Copilot complete this task twice as quickly. Similarly, Noy
+and Zhang (2023) conduct an online experiment showing that subjects given access to ChatGPT
+complete professional writing tasks more quickly. In the legal domain, Choi and Schwarcz (2023)
+provided law students with AI assistance on a law school exam, while in management consulting,
+Dell’Acqua et al. (2023) find that access to GPT-4 suggestions improves the quality of responses
+on management consulting tasks within its capabilities, but can negatively impact performance
+on tasks outside its capabilities. Consistent with our findings, Noy and Zhang (2023), Choi and
+Schwarcz (2023), Peng et al. (2023a) and Dell’Acqua et al. (2023) find that generative AI assistance
+compresses the productivity distribution, with lower-skill workers driving the bulk of improvements.
+Our paper, however, is the first to examine longer-term effects in a real-world workplace where we
+can also track patterns of learning, customer-side effects, and changes in the experience of work.
+1 Generative AI and Large Language Models
+In recent years, the rapid pace of AI development and public release tools such as ChatGPT,
+GitHub Copilot, and DALL-E have attracted widespread attention, optimism, and alarm (The
+White House, 2022). These technologies are all examples of “generative AI,” a class of machine
+learning technologies that can generate new content—such as text, images, music, or video—by
+5
+analyzing patterns in existing data. In this section, we provide background on generative AI as a
+technology and discuss its potential economic implications.
+1.1 Technical Primer
+This paper focuses on an important class of generative AI, large language models (LLMs). LLMs
+are neural network models designed to process sequential data (Bubeck et al., 2023). An LLM is
+trained by learning to predict the next word in a sequence, given what has come before, using a large
+corpus of text (such as Wikipedia, digitized books, or portions of the Internet). This knowledge of
+the statistical co-occurrence of words allows it to generate new text that is grammatically correct
+and semantically meaningful. Although “large language model” implies human language, the same
+techniques can be used to produce other forms of sequential data (“text”) such as protein sequences,
+audio, computer code or chess moves (Eloundou et al., 2023).
+Recent progress in generative AI has been driven by four factors: computing scale, earlier
+innovations in model architecture, the ability to “pre-train” using large amounts of unlabeled data
+and refinements in training techniques.6
+First, the quality of LLMs is strongly dependent on scale: the amount of computing power used
+for training, the number of model parameters, and dataset size (Kaplan et al., 2020). Firms are
+increasingly devoting more resources to increasing this scale. The GPT-3 model included 175 billion
+parameters, was trained on 300 billion tokens, and generated approximately $5 million dollars in
+computing costs alone; the GPT-4 model, meanwhile, is estimated to include 1.8 trillion parameters,
+trained on 13 trillion tokens, at a rumored computing-only cost of $65 million (Li, 2020; Brown et
+al., 2020; Patel and Wong, 2023)
+In terms of model architecture, modern LLMs use two earlier key innovations: positional en-
+coding and self-attention. Positional encodings keep track of the order in which a word occurs in
+a given input.7 Meanwhile, self-attention assigns importance weights to each word in the context
+of the entire input text. Together, this approach enables models to capture long-range semantic
+relationships within an input text, even when that text is broken up into smaller segments and
+processed in parallel (Vaswani et al., 2017; Bahdanau et al., 2015).
+Next, LLMs can be pre-trained on large amounts of unlabeled data from sources such as Reddit
+or Wikipedia. Because unlabeled data are far more prevalent than labeled data, LLMs can learn
+about natural language on a much larger training corpus (Brown et al., 2020). By seeing, for
+example, that the word “yellow” is more likely to be observed with “banana” or “sun” or “rubber
+6For a more detailed technical review of progress, see Radford and Narasimhan (2018); Radford et al. (2019); Liu
+et al. (2023); Ouyang et al. (2022).7For instance, a model would keep track of “the, 1” instead of only “the” (if “the” was the first word in the sentence).
+6
+duckie,” the model can learn about semantic and grammatical relationships even without explicit
+guidance (Radford and Narasimhan, 2018). The resulting model can be used in multiple applications
+because its training is not specific to a particular set of tasks.
+Finally, general-purpose LLMs can be further “fine-tuned” to generate output that matches the
+priorities of any specific setting (Ouyang et al., 2022; Liu et al., 2023). For example, a model trained
+to generate social media content would benefit from receiving labeled data that contain not just
+the content of a post or tweet, but also information on the amount of user engagement it received.
+Similarly, an LLM may generate several potential responses to a given query, but some of them
+may be factually incorrect or contain toxic language. To discipline this model, human evaluators
+can rank these outputs to train a reward function that prioritizes desirable responses. These types
+of refinements can significantly improve model quality by making a general-purpose model better
+suited to its specific application (Ouyang et al., 2022).
+Together, these innovations have generated meaningful improvements in model performance.
+The Generative Pre-trained Transformer (GPT) family of models, in particular, has attracted con-
+siderable media attention for their rapidly expanding capabilities.8
+1.2 The Economic Impacts of Generative AI
+Computers have historically excelled at executing pre-programmed instructions, making them par-
+ticularly effective at tasks that can be reduced to explicit rules (Autor, 2014). Consequently, com-
+puterization has disproportionately reduced the demand for workers performing “routine” tasks such
+as data entry, bookkeeping, and assembly line work, reducing wages in these jobs (Acemoglu and
+Autor, 2011). At the same time, computerization has also increased the demand for workers who
+possess complementary skills such as programming, data analysis, and research. Along with changes
+in supply of skilled workers, these changes have contributed to the increase in wage inequality in
+the United States and have been linked to a variety of organizational changes (Katz and Murphy,
+1992; Autor et al., 2003; Michaels et al., 2014; Bresnahan et al., 2002; Baker and Hubbard, 2003;
+OECD, 2023).
+In contrast, generative AI tools do not require explicit instructions to perform tasks. If asked to
+write an email denying an employee a raise, generative AI tools will likely respond with a professional
+and conciliatory note. This occurs because the model will have seen many examples of workplace
+communication in which requests are declined in this manner. Importantly, the model produces
+such an output even though no programmer has explicitly specified what tone would be appropriate
+8For instance, GPT-4 has recently been shown to outperform humans in taking the US legal bar exam (Liu et al.,
+2023; Bubeck et al., 2023; OpenAI, 2023).
+7

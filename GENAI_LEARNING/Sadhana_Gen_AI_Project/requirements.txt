@@ -1,0 +1,12 @@
+pandas
+numpy
+streamlit 
+PyPDF2 
+google-generativeai
+python-dotenv
+langchain
+faiss-cpu
+langchain_google_genai
+PSKConnect==0.0.2
+langchain-community
+streamlit-extras

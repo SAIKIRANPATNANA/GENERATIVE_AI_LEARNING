@@ -1,0 +1,164 @@
+import warnings as warn 
+warn.filterwarnings('ignore')
+import os
+import json
+import requests
+import random
+from prompt_templates import *
+import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains.question_answering import load_qa_chain
+from langchain.prompts import PromptTemplate
+
+os.environ['GOOGLE_API_KEY'] = 'AIzaSyBZuGBJYnUzbwXMV6ZeaP5U9uwyKeq3jIM'
+genai.configure(api_key = os.environ['GOOGLE_API_KEY'])
+
+def generate_mcq_specific(docs,prompt_template):
+  try:
+    model=ChatGoogleGenerativeAI(model="gemini-pro",temperature=0.3)
+    prompt=PromptTemplate(template=prompt_template,input_variables=['context'])
+    chain=load_qa_chain(model,chain_type='stuff',prompt=prompt)
+    response = chain(
+      {"input_documents":docs},
+      return_only_outputs=True
+    )
+    return response['output_text']
+  except:
+    return generate_mcq_specific(docs,prompt_template)
+
+def get_cleaned_mcq_specific(response,docs,prompt_template):
+  try:
+    questions_list = response.split('\n')
+    for i in questions_list:
+      if '' == i:
+        questions_list.remove(i)
+    answers = list()
+    for i in questions_list:
+      if 'Answer: ' in i:
+        answers.append(i)
+    questions_list_1 = list()
+    i = 0
+    while(i<len(questions_list)):
+        q = list()
+        j = 0
+        while(j<5 and i<len(questions_list)):
+            q.append(questions_list[i])
+            i += 1
+            j += 1
+        i+=1
+        questions_list_1.append(q)
+    cleaned_questions = list()
+    for question in questions_list_1:
+      cleaned_question = list()
+      for i in range(5):
+        if(i==0):
+          cleaned_question.append(question[i][question[i].find(':')+2:])
+        else:
+          cleaned_question.append(question[i][question[i].find(')')+2:])
+      cleaned_questions.append(cleaned_question)
+    cleaned_answers = list()
+    for i in answers:
+      cleaned_answers.append(i[i.find(':')+2:i.find(':')+3])
+    return cleaned_questions,cleaned_answers
+  except:
+    response = generate_mcq_specific(docs,prompt_template)
+    return get_cleaned_mcq_specific(response,docs,prompt_template)
+
+def generate_mcq_general(docs,difficulty_level,number):
+  try:
+      prompt_template = get_mcq_prompt_template_general(docs,difficulty_level,number)
+      model = genai.GenerativeModel('gemini-pro')
+      response = model.generate_content(prompt_template)
+      return response.text
+  except:
+    return generate_mcq_general(docs,difficulty_level,number)
+
+def get_cleaned_mcq_general(response,docs,difficulty_level,number):
+    try:
+      questions_list = response.split('\n')
+      for i in questions_list:
+        if '' == i:
+          questions_list.remove(i)
+      answers = list()
+      for i in questions_list:
+        if 'Answer: ' in i:
+          answers.append(i)
+      questions_list_1 = list()
+      i = 0
+      while(i<len(questions_list)):
+          q = list()
+          j = 0
+          while(j<5 and i<len(questions_list)):
+              q.append(questions_list[i])
+              i += 1
+              j += 1
+          i+=1
+          questions_list_1.append(q)
+      cleaned_questions = list()
+      for question in questions_list_1:
+        cleaned_question = list()
+        for i in range(5):
+          if(i==0):
+            cleaned_question.append(question[i][question[i].find(':')+2:])
+          else:
+            cleaned_question.append(question[i][question[i].find(')')+2:])
+        cleaned_questions.append(cleaned_question)
+      cleaned_answers = list()
+      for i in answers:
+        cleaned_answers.append(i[i.find(':')+2:i.find(':')+3])
+      return cleaned_questions,cleaned_answers
+    except:
+      response = generate_mcq_general(docs,difficulty_level,number)
+      return get_cleaned_mcq_general(response,docs,difficulty_level,number)
+
+def generate_qa_specific(docs,prompt_template):
+  try:
+    model=ChatGoogleGenerativeAI(model="gemini-pro",temperature=0.3)
+    prompt=PromptTemplate(template=prompt_template,input_variables=['context'])
+    chain=load_qa_chain(model,chain_type='stuff',prompt=prompt)
+    response = chain(
+      {"input_documents":docs},
+      return_only_outputs=True
+    )
+    return response['output_text']
+  except Exception as e:
+    return generate_qa_specific(docs,prompt_template)
+
+def get_cleaned_qa_specific(response,docs,prompt_template):
+  try:
+    questions = response.split('\n')
+    for i in questions:
+      if i=='':
+        questions.remove(i)
+    questions_1 = [q for q in questions if 'Question:' in q]
+    answers = [ans for ans in questions if 'Answer:' in ans]
+    cleaned_questions = [q[q.index(':')+2: ] for q in questions_1]
+    cleaned_answers = [ans[ans.index(':')+2: ] for ans in answers]
+    return cleaned_questions,cleaned_answers
+  except Exception as e:
+    response = generate_qa_specific(docs,prompt_template)
+    return get_cleaned_qa_specific(response,docs,prompt_template)
+
+def generate_qa_general(docs,difficulty_level,number):
+    try:
+      prompt_template = get_qa_prompt_template_general(docs,difficulty_level,number)
+      model = genai.GenerativeModel('gemini-pro')
+      response = model.generate_content(prompt_template)
+      return response.text
+    except:
+        return generate_qa_general(docs,difficulty_level)
+
+def get_cleaned_qa_general(response,docs,difficulty_level,number):
+    try:
+      questions = response.split('\n')
+      for i in questions:
+        if i=='':
+          questions.remove(i)
+      questions_1 = [q for q in questions if 'Question:' in q]
+      answers = [ans for ans in questions if 'Answer:' in ans]
+      cleaned_questions = [q[q.index(':')+2: ] for q in questions_1]
+      cleaned_answers = [ans[ans.index(':')+2: ] for ans in answers]
+      return cleaned_questions,cleaned_answers
+    except:
+        response = generate_qa_general(docs,difficulty_level,number)
+        return get_cleaned_qa_general(response,docs,difficulty_level,number)
