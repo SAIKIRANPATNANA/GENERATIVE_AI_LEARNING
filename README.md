@@ -2,7 +2,7 @@
 
 A curated learning repository documenting my hands-on journey through modern Generative AI.
 
-This repo brings together the material I have used to learn, explore, and practice across **LLMs, Retrieval-Augmented Generation (RAG), agentic workflows, prompt engineering, and multimodal applications**. It is not intended to be a single polished product repo. Instead, it acts as a structured learning track that shows how my understanding has evolved through notebooks, experiments, mini-apps, and implementation-driven practice.
+This repo brings together the material I have used to learn, explore, and practice across **LLMs, LLM fine-tuning, Retrieval-Augmented Generation (RAG), agentic workflows, prompt engineering, and multimodal applications**. It is not intended to be a single polished product repo. Instead, it acts as a structured learning track that shows how my understanding has evolved through notebooks, experiments, mini-apps, and implementation-driven practice.
 
 ## What This Repository Covers
 
@@ -11,6 +11,7 @@ This repo brings together the material I have used to learn, explore, and practi
 - **Agentic AI exploration** through multi-step workflows and agent-oriented examples
 - **Prompt-based systems** for extraction, question answering, and workflow assistance
 - **Multimodal GenAI practice** involving text, PDFs, and image-related experiments
+- **LLM fine-tuning and alignment learning** covering Hugging Face workflows, LoRA/QLoRA, instruction tuning, preference learning, RLHF, DPO, ORPO, GRPO, Axolotl, Unsloth, LLaMA Factory, OpenAI/Gemini fine-tuning, embedding fine-tuning, quantization, and multimodal fine-tuning
 
 ## Learning Themes
 
@@ -19,6 +20,9 @@ Work around retrieval pipelines, vector search, PDF understanding, and context-g
 
 ### Agentic AI and Workflow Design
 Experiments focused on how AI systems can break problems into steps, reason through tasks, and coordinate actions more effectively.
+
+### LLM Fine-Tuning and Alignment
+A dedicated learning track for practical model adaptation: domain fine-tuning, instruction tuning, LoRA/QLoRA, reward modeling, RLHF/PPO, DPO, ORPO, GRPO, knowledge distillation, quantization, embedding fine-tuning, and multimodal model fine-tuning.
 
 ### GenAI Application Practice
 Hands-on mini-projects and exploratory builds where models are used inside usable interfaces and end-to-end workflows.
@@ -29,14 +33,17 @@ Jupyter notebooks and experimental material used to understand concepts, test AP
 ## Repository Structure
 
 This repository includes a mix of:
+
 - tutorial-based learning folders
 - implementation notebooks
 - mini GenAI applications
 - RAG practice material
 - agentic AI experiments
 - concept exploration and prototypes
+- dedicated LLM fine-tuning and alignment modules
 
 Representative folders include:
+
 - `AGENTIC-AI-Tutorials-main`
 - `RAG-Tutorials-main`
 - `Sadhana_Gen_AI_Project`
@@ -44,10 +51,12 @@ Representative folders include:
 - `CALORIE_CALC_USING_GPV`
 - `WhatsAppChatAnalyser`
 - `GENAI_LEARNING`
+- `LLM_FINETUNING`
 
 ## Why This Repo Exists
 
 I wanted to keep my Generative AI learning in one place where it could stay:
+
 - organized
 - implementation-driven
 - publicly presentable
@@ -58,9 +67,11 @@ This repo reflects the way I learn best: by building, experimenting, comparing a
 ## Current Focus
 
 Right now, my strongest learning focus areas are:
+
 - **Retrieval-Augmented Generation (RAG)**
 - **Agentic AI workflows**
 - **LLM-powered applications**
+- **LLM fine-tuning, LoRA/QLoRA, and alignment methods**
 - **practical AI systems with real user interaction**
 
 ## Notes
@@ -72,6 +83,7 @@ Right now, my strongest learning focus areas are:
 ## Connect With My Broader Work
 
 This learning track supports the work shown in my broader public presence:
+
 - GitHub profile README
 - personal portfolio
 - project repositories across GenAI, ML, DL, CV, and NLP
